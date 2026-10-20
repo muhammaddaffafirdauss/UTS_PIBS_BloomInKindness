@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Mahasiswa - Muhammad Ridwan Setiadi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrapper">
+
+    
+    <header>
+      <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
+        <rect x="2" y="2" width="60" height="60" rx="6" fill="#e8f1fb" stroke="#3b7dd8" stroke-width="3"/>
+        <circle cx="32" cy="24" r="10" fill="none" stroke="#3b7dd8" stroke-width="3"/>
+        <path d="M12 56c2-14 10-18 20-18s18 4 20 18" fill="none" stroke="#3b7dd8" stroke-width="3"/>
+      </svg>
+      <h1>Profil Mahasiswa</h1>
+    </header>
+
+    
+    <nav>
+      <ul>
+        <li><a href="#biodata" data-target="biodata" class="active">Biodata</a></li>
+        <li><a href="#pendidikan" data-target="pendidikan">Pendidikan</a></li>
+        <li><a href="#pengalaman" data-target="pengalaman">Pengalaman</a></li>
+        <li><a href="#keahlian" data-target="keahlian">Keahlian</a></li>
+        <li><a href="#publikasi" data-target="publikasi">Publikasi</a></li>
+      </ul>
+    </nav>
+
+    
+    <section id="konten">
+
+      <article id="biodata" class="panel active">
+        <h2>Biodata</h2>
+        <table>
+          <tr><th>NIM</th><td>: (isi NIM kamu)</td></tr>
+          <tr><th>Nama</th><td>: Muhammad Ridwan Setiadi</td></tr>
+          <tr><th>Agama</th><td>: Islam</td></tr>
+          <tr><th>Tanggal Lahir</th><td>: (isi tanggal lahir)</td></tr>
+          <tr><th>Tempat Lahir</th><td>: (isi tempat lahir)</td></tr>
+          <tr><th>Program Studi</th><td>: Sistem Informasi</td></tr>
+        </table>
+      </article>
+
+      <article id="pendidikan" class="panel">
+        <h2>Pendidikan</h2>
+        <ul>
+          <li><strong>2025 - Sekarang</strong><br>S1 Sistem Informasi, Fakultas Teknologi dan Desain, Universitas Pembangunan Jaya</li>
+          <li><strong>(tahun - tahun)</strong><br>(Nama SMA/SMK kamu)</li>
+          <li><strong>(tahun - tahun)</strong><br>(Nama SMP kamu)</li>
+          <li><strong>(tahun - tahun)</strong><br>(Nama SD kamu)</li>
+        </ul>
+      </article>
+
+      <article id="pengalaman" class="panel">
+        <h2>Pengalaman</h2>
+        <ul>
+          <li><strong>Divisi Riset Akademik, HIMA Sistem Informasi</strong><br>Program kerja AKADAY: pembelajaran HTML dan CSS untuk mahasiswa baru Sistem Informasi.</li>
+          <li><strong>Proyek Perkuliahan</strong><br>Analisis dan perancangan sistem informasi (use case, class diagram, SRS) serta perancangan basis data.</li>
+        </ul>
+      </article>
+
+      <article id="keahlian" class="panel">
+        <h2>Keahlian</h2>
+        <ul>
+          <li>HTML &amp; CSS (Web Responsive)</li>
+          <li>Analisis &amp; Perancangan Sistem (UML)</li>
+          <li>Perancangan Basis Data</li>
+          <li>Git &amp; GitHub</li>
+          <li>Jaringan Komputer (dasar)</li>
+        </ul>
+      </article>
+
+      <article id="publikasi" class="panel">
+        <h2>Publikasi</h2>
+        <ul>
+          <li>(Belum ada publikasi ilmiah)</li>
+          <li>Repository GitHub: <a href="https://github.com/username" target="_blank" rel="noopener">github.com/username</a></li>
+        </ul>
+      </article>
+
+    </section>
+
+    
+    <aside>
+      <h3>Hobi:</h3>
+      <ul>
+        <li>Bulutangkis</li>
+        <li>Bola</li>
+        <li>Pemrograman</li>
+        <li>Desain Web</li>
+      </ul>
+    </aside>
+
+    
+    <footer>
+      <div class="sosmed">
+        <p>Twitter: @akun</p>
+        <p>FB: @akun</p>
+        <p>Instagram: @akun</p>
+      </div>
+      <p class="copy">&copy; 2026. All Rights Reserved</p>
+      <div class="web">
+        <strong>Profil Ridwan</strong>
+        <p>Web profil mahasiswa Sistem Informasi</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    
+    var links = document.querySelectorAll('nav a');
+    var panels = document.querySelectorAll('#konten .panel');
+
+    links.forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        var id = link.getAttribute('data-target');
+        links.forEach(function (l) { l.classList.remove('active'); });
+        panels.forEach(function (p) { p.classList.remove('active'); });
+        link.classList.add('active');
+        document.getElementById(id).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

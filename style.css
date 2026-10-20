@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #dfe6ee;
+  color: #222;
+  padding: 10px;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 8px;
+  /* ===== SMARTPHONE (default): semua blok 100%, bertumpuk ===== */
+  grid-template-columns: 100%;
+  grid-template-areas:
+    "header"
+    "nav"
+    "section"
+    "aside"
+    "footer";
+}
+
+header  { grid-area: header; }
+nav     { grid-area: nav; }
+section { grid-area: section; }
+aside   { grid-area: aside; }
+footer  { grid-area: footer; }
+
+header, nav, section, aside, footer {
+  background: #fff;
+  border: 1px solid #9fc9d6;
+  padding: 12px;
+  min-width: 0;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #eeeeee;
+}
+.logo { width: 56px; height: 56px; flex-shrink: 0; }
+header h1 { font-size: 1.4rem; }
+
+/* NAV (smartphone: daftar vertikal dengan scroll) */
+nav { max-height: 150px; overflow-y: auto; }
+nav ul { list-style: none; }
+nav a {
+  display: block;
+  padding: 6px 8px;
+  color: #1a4f9c;
+  text-decoration: none;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+nav a:hover { background: #eef5fc; }
+nav a.active { font-weight: bold; background: #dcebfa; }
+
+/* SECTION */
+section { min-height: 200px; }
+.panel { display: none; }
+.panel.active { display: block; }
+.panel h2 { margin-bottom: 12px; font-size: 1.1rem; }
+.panel ul { padding-left: 20px; }
+.panel li { margin-bottom: 10px; line-height: 1.4; }
+table { border-collapse: collapse; font-size: 0.9rem; }
+th { text-align: left; padding: 3px 12px 3px 0; white-space: nowrap; }
+td { padding: 3px 0; }
+
+/* ASIDE (smartphone: daftar vertikal dengan scroll) */
+aside { max-height: 130px; overflow-y: auto; }
+aside h3 { font-style: italic; font-weight: normal; margin-bottom: 4px; }
+aside ul { list-style: none; }
+aside li { font-style: italic; font-size: 0.9rem; padding: 2px 0; }
+
+/* FOOTER */
+footer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #eef5fc;
+  font-size: 0.8rem;
+}
+footer .web { text-align: left; }
+
+/* ===== TABLET PORTRAIT (>= 600px): nav horizontal 100%, hobi 1 baris ===== */
+@media (min-width: 600px) {
+  nav { max-height: none; overflow: visible; }
+  nav ul { display: flex; flex-wrap: wrap; gap: 6px; }
+  nav a { padding: 6px 12px; }
+
+  aside { max-height: none; }
+  aside h3, aside ul { display: inline; }
+  aside ul li { display: inline; margin-left: 8px; }
+
+  footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer .web { text-align: right; }
+}
+
+/* ===== TABLET LANDSCAPE (>= 900px): nav 25% | section 75%, aside & footer 100% ===== */
+@media (min-width: 900px) {
+  .wrapper {
+    grid-template-columns: 25% 1fr;
+    grid-template-areas:
+      "header  header"
+      "nav     section"
+      "aside   aside"
+      "footer  footer";
+  }
+  nav { max-height: 320px; overflow-y: auto; }
+  nav ul { display: block; }
+  nav a { padding: 8px; }
+  section { min-height: 320px; }
+}
+
+/* ===== DESKTOP (>= 1200px): nav 25% | section 50% | aside 25% ===== */
+@media (min-width: 1200px) {
+  .wrapper {
+    grid-template-columns: 25% 1fr 25%;
+    grid-template-areas:
+      "header header  header"
+      "nav    section aside"
+      "footer footer  footer";
+  }
+  nav, aside { max-height: 360px; overflow-y: auto; }
+  section { min-height: 360px; }
+
+  aside h3, aside ul { display: block; }
+  aside ul li { display: block; margin-left: 0; }
+}
